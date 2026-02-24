@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cbuis44ocuv1n"]
+
+[ext_resource type="PackedScene" uid="uid://b01tmnurc6tpy" path="res://Scenes/main_menu.tscn" id="1_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://ddabb6ysbmp78" path="res://Scenes/date_selection.tscn" id="2_3dryh"]
+[ext_resource type="PackedScene" uid="uid://w6lbgu0ra1lg" path="res://Scenes/date.tscn" id="3_wowpa"]
+
+[node name="Game" type="Node2D" unique_id=333929844]
+
+[node name="MainMenu" parent="." unique_id=919796916 instance=ExtResource("1_wrm1d")]
+
+[node name="DateSelection" parent="." unique_id=475771613 instance=ExtResource("2_3dryh")]
+
+[node name="Date" parent="." unique_id=157434387 instance=ExtResource("3_wowpa")]
