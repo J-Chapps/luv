@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://d2nnugf55a5rq"]
+
+[ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://Themes/tinypixel/tinypixel.otf" id="1_ras8h"]
+
+[resource]
+font = ExtResource("1_ras8h")
+font_color = Color(0, 0, 0, 1)

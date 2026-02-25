@@ -1,3 +1,127 @@
 [gd_scene format=3 uid="uid://b01tmnurc6tpy"]
 
+[ext_resource type="Texture2D" uid="uid://dh31drnd1lhjt" path="res://Images/test.png" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://dqvcysbbis3o5" path="res://Themes/tinypixel/Itch Cover.png" id="2_1ehe0"]
+[ext_resource type="LabelSettings" uid="uid://d2nnugf55a5rq" path="res://Themes/MenuButton.tres" id="2_48xlc"]
+
 [node name="MainMenu" type="Node2D" unique_id=919796916]
+
+[node name="Menu" type="Control" parent="." unique_id=1387715554]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1600.0
+offset_bottom = 900.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuPanel" type="Panel" parent="Menu" unique_id=855594290]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionContainer" type="VBoxContainer" parent="Menu/MenuPanel" unique_id=1577217322]
+z_index = 1
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 246.0
+offset_top = -262.0
+offset_right = 374.0
+offset_bottom = 262.0
+grow_vertical = 2
+
+[node name="NewGameButton" type="TextureButton" parent="Menu/MenuPanel/OptionContainer" unique_id=1606705016]
+layout_mode = 2
+texture_normal = ExtResource("1_28flt")
+texture_pressed = ExtResource("2_1ehe0")
+
+[node name="New Game" type="Label" parent="Menu/MenuPanel/OptionContainer/NewGameButton" unique_id=1982329323]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -11.5
+offset_right = 42.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "New Game"
+label_settings = ExtResource("2_48xlc")
+
+[node name="LoadGameButton" type="TextureButton" parent="Menu/MenuPanel/OptionContainer" unique_id=128710092]
+layout_mode = 2
+texture_normal = ExtResource("1_28flt")
+
+[node name="Load Game" type="Label" parent="Menu/MenuPanel/OptionContainer/LoadGameButton" unique_id=1929409464]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -11.5
+offset_right = 44.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Load Game"
+label_settings = ExtResource("2_48xlc")
+
+[node name="SettingsButton" type="TextureButton" parent="Menu/MenuPanel/OptionContainer" unique_id=2071414680]
+layout_mode = 2
+texture_normal = ExtResource("1_28flt")
+
+[node name="Settings" type="Label" parent="Menu/MenuPanel/OptionContainer/SettingsButton" unique_id=212680261]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -11.5
+offset_right = 39.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Settings"
+label_settings = ExtResource("2_48xlc")
+
+[node name="QuitGameButton" type="TextureButton" parent="Menu/MenuPanel/OptionContainer" unique_id=631501328]
+layout_mode = 2
+texture_normal = ExtResource("1_28flt")
+
+[node name="Quit Game" type="Label" parent="Menu/MenuPanel/OptionContainer/QuitGameButton" unique_id=1180751929]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -11.5
+offset_right = 45.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit Game"
+label_settings = ExtResource("2_48xlc")
+
+[node name="MenuBackground" type="TextureRect" parent="Menu/MenuPanel" unique_id=1275270981]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_28flt")
