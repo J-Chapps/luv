@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bbhxw3ocuriie" path="res://Images/Gui/qa-texture.png" id="6_nvq0r"]
 [ext_resource type="Texture2D" uid="uid://c3kour4sknje" path="res://Images/Gui/answer-button.png" id="7_dprc1"]
 [ext_resource type="Texture2D" uid="uid://dlw67h7ffwoca" path="res://Images/Gui/continute-button.png" id="8_rksl0"]
+[ext_resource type="Texture2D" uid="uid://cdt43aly2ohon" path="res://Images/Cards/card-blank.png" id="9_dprc1"]
 
 [node name="Date" type="Node2D" unique_id=157434387]
 
@@ -187,3 +188,47 @@ texture_normal = ExtResource("8_rksl0")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="DateCards" type="Control" parent="." unique_id=1109841517]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+
+[node name="Cards" type="PanelContainer" parent="DateCards" unique_id=771620738]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.7
+anchor_right = 0.75
+anchor_bottom = 0.9
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="DateCards/Cards" unique_id=1762560685]
+layout_mode = 2
+alignment = 1
+
+[node name="HandCard" type="TextureButton" parent="DateCards/Cards/BoxContainer" unique_id=977340983]
+layout_mode = 2
+texture_normal = ExtResource("9_dprc1")
+
+[node name="HandCard2" type="TextureButton" parent="DateCards/Cards/BoxContainer" unique_id=496665388]
+layout_mode = 2
+texture_normal = ExtResource("9_dprc1")
+
+[node name="HandCard3" type="TextureButton" parent="DateCards/Cards/BoxContainer" unique_id=1215090394]
+layout_mode = 2
+texture_normal = ExtResource("9_dprc1")
+
+[node name="HandCard4" type="TextureButton" parent="DateCards/Cards/BoxContainer" unique_id=620748320]
+layout_mode = 2
+texture_normal = ExtResource("9_dprc1")
+
+[node name="HandCard5" type="TextureButton" parent="DateCards/Cards/BoxContainer" unique_id=1620677615]
+layout_mode = 2
+texture_normal = ExtResource("9_dprc1")

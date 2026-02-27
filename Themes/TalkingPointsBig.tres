@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bsrj1uthe76c4"]
+
+[ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://Themes/tinypixel/tinypixel.otf" id="1_rvsv4"]
+
+[resource]
+font = ExtResource("1_rvsv4")
+font_size = 20
+font_color = Color(0, 0, 0, 1)
