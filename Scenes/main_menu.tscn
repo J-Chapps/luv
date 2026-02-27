@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dh31drnd1lhjt" path="res://Images/test.png" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://dqvcysbbis3o5" path="res://Themes/tinypixel/Itch Cover.png" id="2_1ehe0"]
 [ext_resource type="LabelSettings" uid="uid://d2nnugf55a5rq" path="res://Themes/MenuButton.tres" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://cxfygybbd104n" path="res://Images/Backgrounds/main-menu.png" id="4_ce3w2"]
 
 [node name="MainMenu" type="Node2D" unique_id=919796916]
 
@@ -30,10 +31,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 246.0
-offset_top = -262.0
-offset_right = 374.0
-offset_bottom = 262.0
+offset_left = 392.0
+offset_top = -211.0
+offset_right = 520.0
+offset_bottom = 313.0
 grow_vertical = 2
 
 [node name="NewGameButton" type="TextureButton" parent="Menu/MenuPanel/OptionContainer" unique_id=1606705016]
@@ -124,4 +125,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_28flt")
+texture = ExtResource("4_ce3w2")
