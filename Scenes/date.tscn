@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://w6lbgu0ra1lg"]
 
+[ext_resource type="Script" uid="uid://equn602882" path="res://Scenes/date.gd" id="1_rksl0"]
 [ext_resource type="Texture2D" uid="uid://bqcyqygoy3sp5" path="res://Images/Gui/confidence-icon.png" id="1_wovwu"]
 [ext_resource type="Texture2D" uid="uid://cetsj2bbcd831" path="res://Images/Gui/confidence-bar.png" id="2_en8ke"]
-[ext_resource type="Texture2D" path="res://Images/Gui/confidence_texture.png" id="3_sfm7o"]
+[ext_resource type="Texture2D" uid="uid://b475kvey6qscm" path="res://Images/Gui/confidence-texture.png" id="3_dprc1"]
 [ext_resource type="Texture2D" uid="uid://1i6qwrwke3ca" path="res://Images/Gui/connection-bar.png" id="4_nvq0r"]
 [ext_resource type="Texture2D" uid="uid://ctcek4c6s7t2w" path="res://Images/Gui/connection-texture.png" id="5_dprc1"]
 [ext_resource type="Texture2D" uid="uid://bbhxw3ocuriie" path="res://Images/Gui/qa-texture.png" id="6_nvq0r"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cdt43aly2ohon" path="res://Images/Cards/card-blank.png" id="9_dprc1"]
 
 [node name="Date" type="Node2D" unique_id=157434387]
+script = ExtResource("1_rksl0")
 
 [node name="DateStats" type="Control" parent="." unique_id=518328589]
 layout_mode = 3
@@ -42,7 +44,7 @@ layout_mode = 2
 value = 100.0
 fill_mode = 3
 texture_over = ExtResource("2_en8ke")
-texture_progress = ExtResource("3_sfm7o")
+texture_progress = ExtResource("3_dprc1")
 
 [node name="Connection" type="Panel" parent="DateStats" unique_id=1528493769]
 layout_mode = 1
