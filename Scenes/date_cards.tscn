@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://dr48bjtllal5"]
+
+[ext_resource type="Texture2D" uid="uid://cdt43aly2ohon" path="res://Images/Cards/card-blank.png" id="1_31hhf"]
+[ext_resource type="Texture2D" uid="uid://dh31drnd1lhjt" path="res://Images/test.png" id="2_f0e5y"]
+[ext_resource type="LabelSettings" uid="uid://cejh7boknmapd" path="res://Themes/TalkingPoints.tres" id="3_mihqr"]
+[ext_resource type="LabelSettings" uid="uid://bsrj1uthe76c4" path="res://Themes/TalkingPointsBig.tres" id="4_g8okc"]
+[ext_resource type="LabelSettings" uid="uid://52h3cbbi7my1" path="res://Themes/EndTurn.tres" id="5_woutd"]
+
+[node name="DateCards" type="Control" unique_id=982732649]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+
+[node name="Cards" type="PanelContainer" parent="." unique_id=990771641]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.7
+anchor_right = 0.75
+anchor_bottom = 0.9
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Cards" unique_id=1449406086]
+layout_mode = 2
+alignment = 1
+
+[node name="HandCard1" type="TextureButton" parent="Cards/BoxContainer" unique_id=2078678458]
+layout_mode = 2
+texture_normal = ExtResource("1_31hhf")
+
+[node name="HandCard2" type="TextureButton" parent="Cards/BoxContainer" unique_id=1168458330]
+layout_mode = 2
+texture_normal = ExtResource("1_31hhf")
+
+[node name="HandCard3" type="TextureButton" parent="Cards/BoxContainer" unique_id=1071887465]
+layout_mode = 2
+texture_normal = ExtResource("1_31hhf")
+
+[node name="HandCard4" type="TextureButton" parent="Cards/BoxContainer" unique_id=1567285027]
+layout_mode = 2
+texture_normal = ExtResource("1_31hhf")
+
+[node name="HandCard5" type="TextureButton" parent="Cards/BoxContainer" unique_id=857223722]
+layout_mode = 2
+texture_normal = ExtResource("1_31hhf")
+
+[node name="TPEndTurn" type="Panel" parent="." unique_id=272233345]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.8
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TPEndTurnBox" type="HBoxContainer" parent="TPEndTurn" unique_id=1286002598]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TPTexture" type="TextureRect" parent="TPEndTurn/TPEndTurnBox" unique_id=68377684]
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("2_f0e5y")
+
+[node name="TPBox" type="VBoxContainer" parent="TPEndTurn/TPEndTurnBox/TPTexture" unique_id=538396417]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+
+[node name="TPText" type="Label" parent="TPEndTurn/TPEndTurnBox/TPTexture/TPBox" unique_id=2095843641]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.5
+text = "Talking
+Points"
+label_settings = ExtResource("3_mihqr")
+horizontal_alignment = 1
+
+[node name="TPValueText" type="Label" parent="TPEndTurn/TPEndTurnBox/TPTexture/TPBox" unique_id=1818347057]
+layout_mode = 2
+size_flags_vertical = 2
+text = "3/3"
+label_settings = ExtResource("4_g8okc")
+horizontal_alignment = 1
+
+[node name="EndTurnButton" type="TextureButton" parent="TPEndTurn/TPEndTurnBox" unique_id=367607415]
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("2_f0e5y")
+
+[node name="EndTurnText" type="Label" parent="TPEndTurn/TPEndTurnBox/EndTurnButton" unique_id=700642788]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "End
+Turn"
+label_settings = ExtResource("5_woutd")
+horizontal_alignment = 1
+vertical_alignment = 1

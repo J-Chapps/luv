@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://d1jxm57ipjtwh"]
+
+[ext_resource type="Texture2D" uid="uid://bbhxw3ocuriie" path="res://Images/Gui/qa-texture.png" id="1_tr0p3"]
+[ext_resource type="Texture2D" uid="uid://c3kour4sknje" path="res://Images/Gui/answer-button.png" id="2_s478h"]
+[ext_resource type="Texture2D" uid="uid://dlw67h7ffwoca" path="res://Images/Gui/continute-button.png" id="3_p1ng2"]
+
+[node name="DateQA" type="Control" unique_id=1898340772]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1600.0
+offset_bottom = 900.0
+
+[node name="Questions" type="Panel" parent="." unique_id=1449654932]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="QuestionsBox" type="VBoxContainer" parent="Questions" unique_id=227312844]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -63.5
+offset_right = 304.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionTexture" type="TextureRect" parent="Questions/QuestionsBox" unique_id=818025498]
+layout_mode = 2
+texture = ExtResource("1_tr0p3")
+
+[node name="QuestionText" type="Label" parent="Questions/QuestionsBox/QuestionTexture" unique_id=1047815205]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -454.0
+offset_top = -11.5
+offset_right = 454.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnswersBox" type="HBoxContainer" parent="Questions/QuestionsBox" unique_id=1613479709]
+layout_mode = 2
+
+[node name="AnswerButton1" type="TextureButton" parent="Questions/QuestionsBox/AnswersBox" unique_id=1682665206]
+layout_mode = 2
+texture_normal = ExtResource("2_s478h")
+
+[node name="AnswerText1" type="Label" parent="Questions/QuestionsBox/AnswersBox/AnswerButton1" unique_id=388845353]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+
+[node name="AnswerButton2" type="TextureButton" parent="Questions/QuestionsBox/AnswersBox" unique_id=1144874763]
+layout_mode = 2
+texture_normal = ExtResource("2_s478h")
+
+[node name="AnswerText2" type="Label" parent="Questions/QuestionsBox/AnswersBox/AnswerButton2" unique_id=598604540]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnswerButton3" type="TextureButton" parent="Questions/QuestionsBox/AnswersBox" unique_id=473748921]
+layout_mode = 2
+texture_normal = ExtResource("2_s478h")
+
+[node name="AnswerText3" type="Label" parent="Questions/QuestionsBox/AnswersBox/AnswerButton3" unique_id=1863502922]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContinueButton" type="TextureButton" parent="Questions/QuestionsBox" unique_id=1878160036]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_p1ng2")
+
+[node name="ContinueText" type="Label" parent="Questions/QuestionsBox/ContinueButton" unique_id=295517461]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
