@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://c4uvgdllfwiyq"]
+
+[ext_resource type="FontFile" uid="uid://bqle23yow5m6w" path="res://Themes/tinypixel/tinypixel.otf" id="1_1a50a"]
+
+[resource]
+font = ExtResource("1_1a50a")
+font_size = 24
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)

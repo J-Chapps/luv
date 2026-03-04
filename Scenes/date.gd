@@ -1,30 +1,38 @@
 extends Node2D
 
 var connection = 0
+var selected_character = "sharktopus"
+var date_number = 1
 
-var sharktopus_questions1 = []
-var sharktopus_questions2 = []
-var sharktopus_questions3 = []
+# sharktopus questions
+var sq1 = []
+var sq2 = []
+var sq3 = []
 
-var pteracuda_questions1 = []
-var pteracuda_questions2 = []
-var pteracuda_questions3 = []
+# pteracuda questions
+var pq1 = []
+var pq2 = []
+var pq3 = []
 
-var whalewolf_questions1 = []
-var whalewolf_questions2 = []
-var whalewolf_questions3 = []
+# whalewolf questions
+var wq1 = []
+var wq2 = []
+var wq3 = []
 
-var bearanha_questions1 = []
-var bearanha_questions2 = []
-var bearanha_questions3 = []
+# bearanha questions
+var bq1 = []
+var bq2 = []
+var bq3 = []
 
-var velocipastor_questions1 = []
-var velocipastor_questions2 = []
-var velocipastor_questions3 = []
+# velocipastor questions
+var vq1 = []
+var vq2 = []
+var vq3 = []
 
-var kininja_questions1 = []
-var kininja_questions2 = []
-var kininja_questions3 = []
+# kininja questions
+var kq1 = []
+var kq2 = []
+var kq3 = []
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,9 +40,10 @@ func _ready() -> void:
 	read_questions()
 	date_loop()
 	
-	pass # Replace with function body.
 
-
+func answer_pressed_message(answer):
+	
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -46,7 +55,7 @@ func read_questions() -> void:
 	# loops through entire file
 	while not file.eof_reached():
 		var line = file.get_line()
-		
+
 		# if line is blank
 		if line == "":
 			section = section + 1
@@ -57,51 +66,51 @@ func read_questions() -> void:
 			
 			#sharktopus sections
 			if section == 1:
-				sharktopus_questions1.append(lineArray)
+				sq1.append(lineArray)
 			elif section == 2:
-				sharktopus_questions2.append(lineArray)
+				sq2.append(lineArray)
 			elif section == 3:
-				sharktopus_questions3.append(lineArray)
+				sq3.append(lineArray)
 				
 			#pteracuda sections
 			elif section == 4:
-				pteracuda_questions1.append(lineArray)
+				pq1.append(lineArray)
 			elif section == 5:
-				pteracuda_questions2.append(lineArray)
+				pq2.append(lineArray)
 			elif section == 6:
-				pteracuda_questions3.append(lineArray)
+				pq3.append(lineArray)
 			
 			#whalewolf sections
 			elif section == 7:
-				whalewolf_questions1.append(lineArray)
+				wq1.append(lineArray)
 			elif section == 8:
-				whalewolf_questions2.append(lineArray)
+				wq2.append(lineArray)
 			elif section == 9:
-				whalewolf_questions3.append(lineArray)
+				wq3.append(lineArray)
 				
 			#bearanha sections
 			elif section == 10:
-				bearanha_questions1.append(lineArray)
+				bq1.append(lineArray)
 			elif section == 11:
-				bearanha_questions2.append(lineArray)
+				bq2.append(lineArray)
 			elif section == 12:
-				bearanha_questions3.append(lineArray)
+				bq3.append(lineArray)
 				
 			#velocipastor sections
 			elif section == 13:
-				velocipastor_questions1.append(lineArray)
+				vq1.append(lineArray)
 			elif section == 14:
-				velocipastor_questions2.append(lineArray)
+				vq2.append(lineArray)
 			elif section == 15:
-				velocipastor_questions3.append(lineArray)
+				vq3.append(lineArray)
 				
 			#kininja sections
-			elif section == 4:
-				kininja_questions1.append(lineArray)
-			elif section == 5:
-				kininja_questions2.append(lineArray)
-			elif section == 6:
-				kininja_questions3.append(lineArray)
+			elif section == 16:
+				kq1.append(lineArray)
+			elif section == 17:
+				kq2.append(lineArray)
+			elif section == 18:
+				kq3.append(lineArray)
 			
 # the main gameplay loop
 func date_loop() -> void:
@@ -118,7 +127,7 @@ func date_loop() -> void:
 		# call question function
 		question_ask()
 		# await answer to be selected
-	
+		break
 		# hide answers
 		#diplay continue
 		$DateQA/Questions/QuestionsBox/AnswersBox.visible = false
@@ -142,11 +151,70 @@ func date_loop() -> void:
 		intention_act()
 		# loop
 		connection = 100
-	pass
 	
 func question_ask() -> void:
-	pass
+	var selected_question = []
 	
+	# Chooses a question from the specified 
+	if selected_character == "sharktopus":
+		if date_number == 1:
+			selected_question = sq1[randi_range(1,sq1.size()-1)]
+		elif date_number == 2:
+			selected_question = sq2[randi_range(1,sq2.size()-1)]
+		elif date_number == 3:
+			selected_question = sq3[randi_range(1,sq3.size()-1)]
+	
+	elif selected_character == "pteracuda":
+		if date_number == 1:
+			selected_question = pq1[randi_range(1,pq1.size()-1)]
+		elif date_number == 2:
+			selected_question = pq2[randi_range(1,pq2.size()-1)]
+		elif date_number == 3:
+			selected_question = pq3[randi_range(1,pq3.size()-1)]
+	
+	elif selected_character == "whalewolf":
+		if date_number == 1:
+			selected_question = wq1[randi_range(1,wq1.size()-1)]
+		elif date_number == 2:
+			selected_question = wq2[randi_range(1,wq2.size()-1)]
+		elif date_number == 3:
+			selected_question = wq3[randi_range(1,wq3.size()-1)]
+	
+	elif selected_character == "bearanha":
+		if date_number == 1:
+			selected_question = bq1[randi_range(1,bq1.size()-1)]
+		elif date_number == 2:
+			selected_question = bq2[randi_range(1,bq2.size()-1)]
+		elif date_number == 3:
+			selected_question = bq3[randi_range(1,bq3.size()-1)]
+	
+	elif selected_character == "velocipastor":
+		if date_number == 1:
+			selected_question = vq1[randi_range(1,vq1.size()-1)]
+		elif date_number == 2:
+			selected_question = vq2[randi_range(1,vq2.size()-1)]
+		elif date_number == 3:
+			selected_question = vq3[randi_range(1,vq3.size()-1)]
+	
+	elif selected_character == "kininja":
+		if date_number == 1:
+			selected_question = kq1[randi_range(1,kq1.size()-1)]
+		elif date_number == 2:
+			selected_question = kq2[randi_range(1,kq2.size()-1)]
+		elif date_number == 3:
+			selected_question = kq3[randi_range(1,kq3.size()-1)]
+
+	# display questions and answers
+	$DateQA/Questions/QuestionsBox/QuestionTexture/QuestionText.text = selected_question[0]
+	
+	$DateQA/Questions/QuestionsBox/AnswersBox/AnswerButton1/AnswerText1.text = selected_question[1]
+	$DateQA/Questions/QuestionsBox/AnswersBox/AnswerButton2/AnswerText2.text = selected_question[2]
+	$DateQA/Questions/QuestionsBox/AnswersBox/AnswerButton3/AnswerText3.text = selected_question[3]
+
+func answer_pressed(answer) -> void:
+	print(answer)
+	pass
+
 func answer_respond() -> void:
 	pass
 	

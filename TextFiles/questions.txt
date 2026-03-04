@@ -1,4 +1,38 @@
-Are you a fan of coconuts; Not my favourite; They’re yummers; Eww, no; neutral; good; bad,
+Sharktopus Questions 1; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value 
+Are you a fan of coconuts?; Not my favourite; They’re yummers; Eww, no; neutral; good; bad
 Do you enjoy reading?; I can’t read; It’s alright; I’m a big fan; bad; neutral; good
 
+Sharktopus Questions 2; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value 
+
+Sharktopus Questions 3; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Pteracuda Questions 1; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
 What’s your go-to drink?; Vodka Monster; 50 beers; Any wine haha; good; neutral; bad,
+
+Pteracuda Questions 2; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Pteracuda Questions 3; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Whalewolf Questions 1; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Whalewolf Questions 2; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Whalewolf Questions 3; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Bearanha Questions 1; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Bearanha Questions 2; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Bearanha Questions 3; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Velocipastor Questions 1; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Velocipastor Questions 2; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Velocipastor Questions 3; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Kininja Questions 1; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Kininja Questions 2; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value
+
+Kininja Questions 3; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value

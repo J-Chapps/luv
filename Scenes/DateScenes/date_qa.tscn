@@ -1,14 +1,18 @@
 [gd_scene format=3 uid="uid://d1jxm57ipjtwh"]
 
+[ext_resource type="Script" uid="uid://b0eb11cfkrwpv" path="res://Scenes/DateScenes/date_qa.gd" id="1_g5e02"]
 [ext_resource type="Texture2D" uid="uid://bbhxw3ocuriie" path="res://Images/Gui/qa-texture.png" id="1_tr0p3"]
+[ext_resource type="LabelSettings" uid="uid://bbylk7lwdob14" path="res://Themes/QuestionText.tres" id="2_p1ng2"]
 [ext_resource type="Texture2D" uid="uid://c3kour4sknje" path="res://Images/Gui/answer-button.png" id="2_s478h"]
 [ext_resource type="Texture2D" uid="uid://dlw67h7ffwoca" path="res://Images/Gui/continute-button.png" id="3_p1ng2"]
+[ext_resource type="LabelSettings" uid="uid://c4uvgdllfwiyq" path="res://Themes/AnswerText.tres" id="4_p1ng2"]
 
 [node name="DateQA" type="Control" unique_id=1898340772]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1600.0
 offset_bottom = 900.0
+script = ExtResource("1_g5e02")
 
 [node name="Questions" type="Panel" parent="." unique_id=1449654932]
 layout_mode = 1
@@ -54,6 +58,10 @@ offset_right = 454.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = ExtResource("2_p1ng2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="AnswersBox" type="HBoxContainer" parent="Questions/QuestionsBox" unique_id=1613479709]
 layout_mode = 2
@@ -75,6 +83,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = ExtResource("4_p1ng2")
 horizontal_alignment = 1
 
 [node name="AnswerButton2" type="TextureButton" parent="Questions/QuestionsBox/AnswersBox" unique_id=1144874763]
@@ -94,6 +103,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = ExtResource("4_p1ng2")
 
 [node name="AnswerButton3" type="TextureButton" parent="Questions/QuestionsBox/AnswersBox" unique_id=473748921]
 layout_mode = 2
@@ -112,6 +122,7 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+label_settings = ExtResource("4_p1ng2")
 
 [node name="ContinueButton" type="TextureButton" parent="Questions/QuestionsBox" unique_id=1878160036]
 layout_mode = 2
@@ -122,3 +133,7 @@ texture_normal = ExtResource("3_p1ng2")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[connection signal="pressed" from="Questions/QuestionsBox/AnswersBox/AnswerButton1" to="." method="_on_answer_button_1_pressed"]
+[connection signal="pressed" from="Questions/QuestionsBox/AnswersBox/AnswerButton2" to="." method="_on_answer_button_2_pressed"]
+[connection signal="pressed" from="Questions/QuestionsBox/AnswersBox/AnswerButton3" to="." method="_on_answer_button_3_pressed"]
