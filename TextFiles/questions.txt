@@ -1,5 +1,5 @@
 Sharktopus Questions 1; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value 
-Are you a fan of coconuts?; Not my favourite; They’re yummers; Eww, no; neutral; good; bad
+Are you a fan of coconuts; Not my favourite; They’re yummers; Eww, no; neutral; good; bad
 Do you enjoy reading?; I can’t read; It’s alright; I’m a big fan; bad; neutral; good
 
 Sharktopus Questions 2; Answer 1; Answer 2; Answer 3; Answer 1 Value; Answer 2 Value; Answer 3 Value 

@@ -1,8 +1,12 @@
 extends Node2D
 
 var connection = 0
+var confidence = 100
 var selected_character = "sharktopus"
 var date_number = 1
+var selected_question = []
+
+signal answer_processed()
 
 # sharktopus questions
 var sq1 = []
@@ -126,8 +130,10 @@ func date_loop() -> void:
 	
 		# call question function
 		question_ask()
-		# await answer to be selected
-		break
+		
+		# await answer to be selected and processed
+		await self.answer_processed
+		
 		# hide answers
 		#diplay continue
 		$DateQA/Questions/QuestionsBox/AnswersBox.visible = false
@@ -153,7 +159,6 @@ func date_loop() -> void:
 		connection = 100
 	
 func question_ask() -> void:
-	var selected_question = []
 	
 	# Chooses a question from the specified 
 	if selected_character == "sharktopus":
@@ -212,8 +217,37 @@ func question_ask() -> void:
 	$DateQA/Questions/QuestionsBox/AnswersBox/AnswerButton3/AnswerText3.text = selected_question[3]
 
 func answer_pressed(answer) -> void:
-	print(answer)
-	pass
+	
+	# find value for answer
+	answer = selected_question[answer + 3]
+	var connection_change = 0
+	var confidence_change = -20
+	
+	if answer == "good":
+		connection_change = 20
+		confidence_change = -5
+	elif answer == "neutral":
+		connection_change = 10
+		confidence_change = -10
+	
+	# update connection and confidence
+	change_connection(connection_change)
+	change_confidence(confidence_change)
+	
+	# continue main loop
+	emit_signal("answer_processed")
+
+func change_connection(connection_change) -> void:
+	# set connection bar progress
+	connection = connection + connection_change
+	$DateStats/Connection/ConnectionBox/ConnectionTexture.value = connection
+	print(connection)
+	
+func change_confidence(confidence_change) -> void:
+	# set confidence bar progress
+	confidence = confidence + confidence_change
+	$DateStats/Confidence/ConfidenceBox/ConfidenceTexture.value = confidence
+	print(confidence)
 
 func answer_respond() -> void:
 	pass
