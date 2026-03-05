@@ -6,7 +6,25 @@ var selected_character = "sharktopus"
 var date_number = 1
 var selected_question = []
 
+var card_compliment_image = preload("res://Images/Cards/card_compliment.png")
+var card_funstory_image = preload("res://Images/Cards/card_funstory.png")
+var card_coolstory_image = preload("res://Images/Cards/card_coolstory.png")
+var card_getsocials_image = preload("res://Images/Cards/card_getsocials.png")
+var card_boldgesture_image = preload("res://Images/Cards/card_boldgesture.png")
+var card_makeamove_image = preload("res://Images/Cards/card_makeamove.png")
+
+var allCards = [
+	["Card name", "Tp", "Connection", "Confidence", "Aura", "Type", "image"],
+	["Compliment", "1", "5", "0", "0", "basic",card_compliment_image],
+	["Fun Story", "1", "0", "5", "0", "basic", card_funstory_image],
+	["Cool Story", "1", "0", "0", "10", "basic", card_coolstory_image],
+	["Get Socials", "2", "5", "0", "5", "basic", card_getsocials_image],
+	["Bold Gesture", "2", "0", "15", "0", "basic", card_boldgesture_image],
+	["Make a move", "3", "20", "0", "10", "basic",  card_makeamove_image],
+	]
+
 signal answer_processed()
+signal continue_processed()
 
 # sharktopus questions
 var sq1 = []
@@ -43,11 +61,7 @@ var kq3 = []
 func _ready() -> void:
 	read_questions()
 	date_loop()
-	
 
-func answer_pressed_message(answer):
-	
-	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -141,7 +155,9 @@ func date_loop() -> void:
 	
 		# call response function
 		answer_respond()
+		
 		# await continue to be pressed
+		await self.continue_processed
 	
 		# hide question elements
 		$DateQA.visible = false
@@ -251,7 +267,12 @@ func change_confidence(confidence_change) -> void:
 
 func answer_respond() -> void:
 	pass
-	
+
+func continue_pressed() -> void:
+	# send signal back to main loop
+	emit_signal("continue_processed")
+	pass
+
 func intention_create() -> void:
 	pass
 	
