@@ -142,6 +142,7 @@ func read_questions() -> void:
 func read_cards() -> void:
 	var file = FileAccess.open("res://TextFiles/cards.txt", FileAccess.READ)
 	
+	# updates the deck cards
 	while not file.eof_reached():
 		var line = file.get_line()
 		if line != "":
@@ -190,8 +191,9 @@ func date_loop() -> void:
 		# await end turn to be pressed
 		# act on intention
 		intention_act()
+		
 		# loop
-		connection = 100
+		break
 	
 func question_ask() -> void:
 	
@@ -276,13 +278,13 @@ func change_connection(connection_change) -> void:
 	# set connection bar progress
 	connection = connection + connection_change
 	$DateStats/Connection/ConnectionBox/ConnectionTexture.value = connection
-	print(connection)
-	
+
 func change_confidence(confidence_change) -> void:
 	# set confidence bar progress
 	confidence = confidence + confidence_change
 	$DateStats/Confidence/ConfidenceBox/ConfidenceTexture.value = confidence
-	print(confidence)
+	if confidence > 100:
+		confidence = 100
 
 func answer_respond() -> void:
 	pass
@@ -293,6 +295,7 @@ func continue_pressed() -> void:
 	pass
 
 func generate_cards() -> void:
+	# shuffles cards and creates the subarrays
 	deckCards.shuffle()
 	
 	var card1type = int(deckCards[1])
@@ -301,25 +304,40 @@ func generate_cards() -> void:
 	var card4type = int(deckCards[4])
 	var card5type = int(deckCards[5])
 	
-	print(card1type)
-	
 	card1 = allCards[card1type]
 	card2 = allCards[card2type]
 	card3 = allCards[card3type]
 	card4 = allCards[card4type]
 	card5 = allCards[card5type]
 	
+	# sets the textures
 	$DateCards/Cards/BoxContainer/HandCard1.texture_normal = card1[6]
 	$DateCards/Cards/BoxContainer/HandCard2.texture_normal = card2[6]
 	$DateCards/Cards/BoxContainer/HandCard3.texture_normal = card3[6]
 	$DateCards/Cards/BoxContainer/HandCard4.texture_normal = card4[6]
 	$DateCards/Cards/BoxContainer/HandCard5.texture_normal = card5[6]
-	
-	pass
 
 func card_pressed(card) -> void:
-	
-	pass
+	var selectedCard = []
+	# finds which card was pressed
+	if card == 1:
+		$DateCards/Cards/BoxContainer/HandCard1.visible = false
+		selectedCard = card1
+	elif card == 2:
+		$DateCards/Cards/BoxContainer/HandCard2.visible = false
+		selectedCard = card2
+	elif card == 3:
+		$DateCards/Cards/BoxContainer/HandCard3.visible = false
+		selectedCard = card3
+	elif card == 4:
+		$DateCards/Cards/BoxContainer/HandCard4.visible = false
+		selectedCard = card4
+	elif card == 5:
+		$DateCards/Cards/BoxContainer/HandCard5.visible = false
+		selectedCard = card5
+		
+	change_connection(int(selectedCard[2]))
+	change_confidence(int(selectedCard[3]))
 	
 func intention_create() -> void:
 	pass
