@@ -6,6 +6,7 @@ var selected_character = "sharktopus"
 var date_number = 1
 var selected_question = []
 
+var card_blank_image = preload("res://Images/Cards/card-blank.png")
 var card_compliment_image = preload("res://Images/Cards/card_compliment.png")
 var card_funstory_image = preload("res://Images/Cards/card_funstory.png")
 var card_coolstory_image = preload("res://Images/Cards/card_coolstory.png")
@@ -13,8 +14,9 @@ var card_getsocials_image = preload("res://Images/Cards/card_getsocials.png")
 var card_boldgesture_image = preload("res://Images/Cards/card_boldgesture.png")
 var card_makeamove_image = preload("res://Images/Cards/card_makeamove.png")
 
+# ["Card name", "Tp", "Connection", "Confidence", "Aura", "Type", "image"]
 var allCards = [
-	["Card name", "Tp", "Connection", "Confidence", "Aura", "Type", "image"],
+	["Blank Card", "0", "0", "0", "0", "basic", card_blank_image],
 	["Compliment", "1", "5", "0", "0", "basic",card_compliment_image],
 	["Fun Story", "1", "0", "5", "0", "basic", card_funstory_image],
 	["Cool Story", "1", "0", "0", "10", "basic", card_coolstory_image],
@@ -22,6 +24,13 @@ var allCards = [
 	["Bold Gesture", "2", "0", "15", "0", "basic", card_boldgesture_image],
 	["Make a move", "3", "20", "0", "10", "basic",  card_makeamove_image],
 	]
+
+var deckCards = []
+var card1 = []
+var card2 = []
+var card3 = []
+var card4 = []
+var card5 = []
 
 signal answer_processed()
 signal continue_processed()
@@ -56,10 +65,10 @@ var kq1 = []
 var kq2 = []
 var kq3 = []
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	read_questions()
+	read_cards()
 	date_loop()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -129,7 +138,15 @@ func read_questions() -> void:
 				kq2.append(lineArray)
 			elif section == 18:
 				kq3.append(lineArray)
-			
+
+func read_cards() -> void:
+	var file = FileAccess.open("res://TextFiles/cards.txt", FileAccess.READ)
+	
+	while not file.eof_reached():
+		var line = file.get_line()
+		if line != "":
+			deckCards.append(line)
+
 # the main gameplay loop
 func date_loop() -> void:
 	
@@ -162,11 +179,13 @@ func date_loop() -> void:
 		# hide question elements
 		$DateQA.visible = false
 	
-		# display card elements
+		# generate card elements
+		generate_cards()
+		$DateCards.visible = true
+		
 		# create intention
 		intention_create()
 		# display date intention
-		$DateCards.visible = true
 	
 		# await end turn to be pressed
 		# act on intention
@@ -273,6 +292,35 @@ func continue_pressed() -> void:
 	emit_signal("continue_processed")
 	pass
 
+func generate_cards() -> void:
+	deckCards.shuffle()
+	
+	var card1type = int(deckCards[1])
+	var card2type = int(deckCards[2])
+	var card3type = int(deckCards[3])
+	var card4type = int(deckCards[4])
+	var card5type = int(deckCards[5])
+	
+	print(card1type)
+	
+	card1 = allCards[card1type]
+	card2 = allCards[card2type]
+	card3 = allCards[card3type]
+	card4 = allCards[card4type]
+	card5 = allCards[card5type]
+	
+	$DateCards/Cards/BoxContainer/HandCard1.texture_normal = card1[6]
+	$DateCards/Cards/BoxContainer/HandCard2.texture_normal = card2[6]
+	$DateCards/Cards/BoxContainer/HandCard3.texture_normal = card3[6]
+	$DateCards/Cards/BoxContainer/HandCard4.texture_normal = card4[6]
+	$DateCards/Cards/BoxContainer/HandCard5.texture_normal = card5[6]
+	
+	pass
+
+func card_pressed(card) -> void:
+	
+	pass
+	
 func intention_create() -> void:
 	pass
 	

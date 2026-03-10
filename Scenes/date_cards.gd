@@ -9,3 +9,31 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_hand_card_1_pressed() -> void:
+	var card = 1
+	send_card_to_parent(card)
+	pass # Replace with function body.
+
+
+func _on_hand_card_2_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_hand_card_3_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_hand_card_4_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_hand_card_5_pressed() -> void:
+	pass # Replace with function body.
+
+func send_card_to_parent(card) -> void:
+	var parent = get_parent()
+	if parent.has_method("card_pressed"):
+		parent.card_pressed()
+	pass
