@@ -6,6 +6,8 @@ var selected_character = "sharktopus"
 var date_number = 1
 var selected_question = []
 
+var energy = 3
+
 var card_blank_image = preload("res://Images/Cards/card-blank.png")
 var card_compliment_image = preload("res://Images/Cards/card_compliment.png")
 var card_funstory_image = preload("res://Images/Cards/card_funstory.png")
@@ -311,34 +313,68 @@ func generate_cards() -> void:
 	card5 = allCards[card5type]
 	
 	# sets the textures
-	$DateCards/Cards/BoxContainer/HandCard1.texture_normal = card1[6]
-	$DateCards/Cards/BoxContainer/HandCard2.texture_normal = card2[6]
-	$DateCards/Cards/BoxContainer/HandCard3.texture_normal = card3[6]
-	$DateCards/Cards/BoxContainer/HandCard4.texture_normal = card4[6]
-	$DateCards/Cards/BoxContainer/HandCard5.texture_normal = card5[6]
+	$DateCards/Cards/HandCards/HandCards/HandCard1.texture_normal = card1[6]
+	$DateCards/Cards/HandCards/HandCards/HandCard2.texture_normal = card2[6]
+	$DateCards/Cards/HandCards/HandCards/HandCard3.texture_normal = card3[6]
+	$DateCards/Cards/HandCards/HandCards/HandCard4.texture_normal = card4[6]
+	$DateCards/Cards/HandCards/HandCards/HandCard5.texture_normal = card5[6]
 
 func card_pressed(card) -> void:
+	
+	var affordable = false
 	var selectedCard = []
 	# finds which card was pressed
 	if card == 1:
-		$DateCards/Cards/BoxContainer/HandCard1.visible = false
-		selectedCard = card1
+		if check_tp_cost(card1) == true:
+			$DateCards/Cards/HandCards/HandCards/HandCard1.visible = false
+			selectedCard = card1
+			affordable = true
+		else:
+			affordable = false
 	elif card == 2:
-		$DateCards/Cards/BoxContainer/HandCard2.visible = false
-		selectedCard = card2
+		if check_tp_cost(card2) == true:
+			$DateCards/Cards/HandCards/HandCards/HandCard2.visible = false
+			selectedCard = card2
+			affordable = true
+		else:
+			affordable = false
 	elif card == 3:
-		$DateCards/Cards/BoxContainer/HandCard3.visible = false
-		selectedCard = card3
+		if check_tp_cost(card3) == true:
+			$DateCards/Cards/HandCards/HandCards/HandCard3.visible = false
+			selectedCard = card3
+			affordable = true
+		else:
+			affordable = false
 	elif card == 4:
-		$DateCards/Cards/BoxContainer/HandCard4.visible = false
-		selectedCard = card4
+		if check_tp_cost(card4) == true:
+			$DateCards/Cards/HandCards/HandCards/HandCard4.visible = false
+			selectedCard = card4
+			affordable = true
+		else:
+			affordable = false
 	elif card == 5:
-		$DateCards/Cards/BoxContainer/HandCard5.visible = false
-		selectedCard = card5
+		if check_tp_cost(card5) == true:
+			$DateCards/Cards/HandCards/HandCards/HandCard5.visible = false
+			selectedCard = card5
+			affordable = true
+		else:
+			affordable = false
 		
-	change_connection(int(selectedCard[2]))
-	change_confidence(int(selectedCard[3]))
-	
+	if affordable == true:
+		change_connection(int(selectedCard[2]))
+		change_confidence(int(selectedCard[3]))
+	else:
+		$DateCards/Cards/HandCards/CantAfford.visible = true
+		await get_tree().create_timer(1.0).timeout
+		$DateCards/Cards/HandCards/CantAfford.visible = false
+
+func check_tp_cost(card):
+	if int(card[1]) <= energy:
+		energy = energy - int(card[1])
+		return true
+	else:
+		return false
+
 func intention_create() -> void:
 	pass
 	
