@@ -6,7 +6,8 @@ var selected_character = "sharktopus"
 var date_number = 1
 var selected_question = []
 
-var energy = 3
+var MAX_TP = 3
+var tp = MAX_TP
 
 var card_blank_image = preload("res://Images/Cards/card-blank.png")
 var card_compliment_image = preload("res://Images/Cards/card_compliment.png")
@@ -19,12 +20,12 @@ var card_makeamove_image = preload("res://Images/Cards/card_makeamove.png")
 # ["Card name", "Tp", "Connection", "Confidence", "Aura", "Type", "image"]
 var allCards = [
 	["Blank Card", "0", "0", "0", "0", "basic", card_blank_image],
-	["Compliment", "1", "5", "0", "0", "basic",card_compliment_image],
-	["Fun Story", "1", "0", "5", "0", "basic", card_funstory_image],
-	["Cool Story", "1", "0", "0", "10", "basic", card_coolstory_image],
-	["Get Socials", "2", "5", "0", "5", "basic", card_getsocials_image],
-	["Bold Gesture", "2", "0", "15", "0", "basic", card_boldgesture_image],
-	["Make a move", "3", "20", "0", "10", "basic",  card_makeamove_image],
+	["Compliment", "-1", "5", "0", "0", "basic",card_compliment_image],
+	["Fun Story", "-1", "0", "5", "0", "basic", card_funstory_image],
+	["Cool Story", "-1", "0", "0", "10", "basic", card_coolstory_image],
+	["Get Socials", "-2", "5", "0", "5", "basic", card_getsocials_image],
+	["Bold Gesture", "-2", "0", "15", "0", "basic", card_boldgesture_image],
+	["Make a move", "-3", "20", "0", "10", "basic",  card_makeamove_image],
 	]
 
 var deckCards = []
@@ -36,6 +37,7 @@ var card5 = []
 
 signal answer_processed()
 signal continue_processed()
+signal end_turn_processed()
 
 # sharktopus questions
 var sq1 = []
@@ -191,11 +193,14 @@ func date_loop() -> void:
 		# display date intention
 	
 		# await end turn to be pressed
+		await self.end_turn_processed
+		
+		# await end turn to be pressed
 		# act on intention
 		intention_act()
 		
 		# loop
-		break
+		#break
 	
 func question_ask() -> void:
 	
@@ -288,6 +293,12 @@ func change_confidence(confidence_change) -> void:
 	if confidence > 100:
 		confidence = 100
 
+# changes the value and display of talking points
+func change_tp(tp_change) -> void:
+	tp = tp + int(tp_change)
+	var text_value = str(tp) + "/3"
+	$DateCards/TPEndTurn/TPEndTurnBox/TPTexture/TPBox/TPValueText.text = text_value
+
 func answer_respond() -> void:
 	pass
 
@@ -318,6 +329,17 @@ func generate_cards() -> void:
 	$DateCards/Cards/HandCards/HandCards/HandCard3.texture_normal = card3[6]
 	$DateCards/Cards/HandCards/HandCards/HandCard4.texture_normal = card4[6]
 	$DateCards/Cards/HandCards/HandCards/HandCard5.texture_normal = card5[6]
+	
+	# sets the visibility
+	$DateCards/Cards/HandCards/HandCards/HandCard1.visible = true
+	$DateCards/Cards/HandCards/HandCards/HandCard2.visible = true
+	$DateCards/Cards/HandCards/HandCards/HandCard3.visible = true
+	$DateCards/Cards/HandCards/HandCards/HandCard4.visible = true
+	$DateCards/Cards/HandCards/HandCards/HandCard5.visible = true
+	
+	# reset tp
+	tp = MAX_TP
+	change_tp(0)
 
 func card_pressed(card) -> void:
 	
@@ -325,35 +347,35 @@ func card_pressed(card) -> void:
 	var selectedCard = []
 	# finds which card was pressed
 	if card == 1:
-		if check_tp_cost(card1) == true:
+		if check_tp_cost(card1[1]) == true:
 			$DateCards/Cards/HandCards/HandCards/HandCard1.visible = false
 			selectedCard = card1
 			affordable = true
 		else:
 			affordable = false
 	elif card == 2:
-		if check_tp_cost(card2) == true:
+		if check_tp_cost(card2[1]) == true:
 			$DateCards/Cards/HandCards/HandCards/HandCard2.visible = false
 			selectedCard = card2
 			affordable = true
 		else:
 			affordable = false
 	elif card == 3:
-		if check_tp_cost(card3) == true:
+		if check_tp_cost(card3[1]) == true:
 			$DateCards/Cards/HandCards/HandCards/HandCard3.visible = false
 			selectedCard = card3
 			affordable = true
 		else:
 			affordable = false
 	elif card == 4:
-		if check_tp_cost(card4) == true:
+		if check_tp_cost(card4[1]) == true:
 			$DateCards/Cards/HandCards/HandCards/HandCard4.visible = false
 			selectedCard = card4
 			affordable = true
 		else:
 			affordable = false
 	elif card == 5:
-		if check_tp_cost(card5) == true:
+		if check_tp_cost(card5[1]) == true:
 			$DateCards/Cards/HandCards/HandCards/HandCard5.visible = false
 			selectedCard = card5
 			affordable = true
@@ -363,14 +385,14 @@ func card_pressed(card) -> void:
 	if affordable == true:
 		change_connection(int(selectedCard[2]))
 		change_confidence(int(selectedCard[3]))
+		change_tp(int(selectedCard[1]))
 	else:
 		$DateCards/Cards/HandCards/CantAfford.visible = true
 		await get_tree().create_timer(1.0).timeout
 		$DateCards/Cards/HandCards/CantAfford.visible = false
 
-func check_tp_cost(card):
-	if int(card[1]) <= energy:
-		energy = energy - int(card[1])
+func check_tp_cost(card_tp):
+	if (int(card_tp) + tp) >= 0:
 		return true
 	else:
 		return false
@@ -378,5 +400,10 @@ func check_tp_cost(card):
 func intention_create() -> void:
 	pass
 	
+func end_turn_pressed() -> void:
+	# send signal back to main loop
+	emit_signal("end_turn_processed")
+	pass
+
 func intention_act() -> void:
 	pass

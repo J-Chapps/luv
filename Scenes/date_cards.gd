@@ -40,4 +40,9 @@ func send_card_to_parent(card) -> void:
 	var parent = get_parent()
 	if parent.has_method("card_pressed"):
 		parent.card_pressed(card)
-	pass
+
+
+func _on_end_turn_button_pressed() -> void:
+	var parent = get_parent()
+	if parent.has_method("end_turn_pressed"):
+		parent.end_turn_pressed()
